@@ -37,29 +37,64 @@ public class Generate {
             randomNumber = random.nextInt(lessonManager.lessons.size());
             Lesson lesson = lessonManager.lessons.get(randomNumber);
             if(lesson.lessonHour == 2) {
-                for (int j = 0; j < lesson.lessonHour; j++) {
-                    lessonCounter = lessonCounter+1;
-                    System.out.println(lessonCounter + ". Ders: " + lesson.grade10[lesson.lessonId]);
+                if (maxLesson-lessonCounter >= lesson.getLessonHour()) {
+                    if (lesson.lessonHourOnWeek > 1) {
+                        for (int j = 0; j < lesson.lessonHour; j++) {
+                            lessonCounter = lessonCounter + 1;
+                            System.out.println(lessonCounter + ". Ders: " + lesson.grade10[lesson.lessonId]);
+                        }
+                        lesson.setLessonHourOnWeek(lesson.getLessonHourOnWeek() - lesson.getLessonHour());
+                        counter = counter + lesson.lessonHour;
+                    } else {
+                        i = i - 1;
+                    }
+                }else {
+                    i=i-1;
                 }
-                counter = counter + lesson.lessonHour;
-
             }else if (lesson.lessonHour > 2 && lesson.lessonHour<=5 && lesson.lessonHourOnWeek == 5) {
-                for (int j = 0; j <= lesson.lessonHour; j++) {
-                    lessonCounter = lessonCounter+1;
-                    System.out.println(lessonCounter + ". Ders: " + lesson.grade10[lesson.lessonId]);
+                if (lesson.lessonHourOnWeek >1) {
+                    if (!(flag && (lesson.lessonId == 1 || lesson.lessonId == 2))) {
+                        for (int j = 0; j < lesson.lessonHour; j++) {
+                            lessonCounter = lessonCounter + 1;
+                            System.out.println(lessonCounter + ". Ders: " + lesson.grade10[lesson.lessonId]);
+                        }
+                    } else {
+                        lesson.setLessonHour(3);
+                        for (int j = 0; j < lesson.lessonHour+1; j++) {
+                            lessonCounter = lessonCounter + 1;
+                            System.out.println(lessonCounter + ". Ders: " + lesson.grade10[lesson.lessonId]);
+                        }
+                    }
+                    lesson.setLessonHourOnWeek(lesson.getLessonHourOnWeek()-lesson.getLessonHour());
+                    counter = counter + lesson.lessonHour;
+                }else {
+                    i = i-1;
                 }
-                counter = counter + lesson.lessonHour;
             }else if (lesson.lessonHour == 5) {
-                for (int j = 0; j < lesson.lessonHour; j++) {
-                    lessonCounter = lessonCounter+1;
-                    System.out.println(lessonCounter + ". Ders: " + lesson.grade10[lesson.lessonId]);
+                if (lessonCounter == 0 || counter == 0) {
+                    if (lesson.lessonHourOnWeek == 5) {
+                        flag = true;
+                        if ((maxLesson - lessonCounter) >= 5) {
+                            for (int j = 0; j < lesson.lessonHour; j++) {
+                                lessonCounter = lessonCounter + 1;
+                                System.out.println(lessonCounter + ". Ders: " + lesson.grade10[lesson.lessonId]);
+                            }
+                        } else {
+                            i = i - 1;
+                        }
+                        lesson.setLessonHourOnWeek(lesson.getLessonHourOnWeek() - lesson.getLessonHour());
+                        counter = counter + lesson.lessonHour;
+                    } else {
+                        i = i - 1;
+                    }
+                }else {
+                    i = i-1;
                 }
-                counter = counter + lesson.lessonHour;
             }else {
                 System.out.println("Algoritma Açığı Lütfen Yapımcıya Bildir.");
             }
             if (counter>=maxLesson) {
-                break;
+                 break;
             }
         }
     }
