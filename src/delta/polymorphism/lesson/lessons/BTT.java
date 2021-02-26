@@ -5,6 +5,6 @@ import delta.polymorphism.lesson.Lesson;
 public class BTT extends Lesson {
 
     public BTT() {
-        super(5,5,5);
+        super("Bilişim Temelleri",5,5,5);
     }
 }

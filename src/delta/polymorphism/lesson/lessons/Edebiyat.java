@@ -5,6 +5,6 @@ import delta.polymorphism.lesson.Lesson;
 public class Edebiyat extends Lesson {
 
     public Edebiyat() {
-        super(2, 5, 1);
+        super("Edebiyat",3, 5, 1);
     }
 }

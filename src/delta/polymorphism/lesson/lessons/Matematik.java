@@ -4,6 +4,6 @@ import delta.polymorphism.lesson.Lesson;
 
 public class Matematik extends Lesson {
     public Matematik() {
-        super(2, 5, 2);
+        super("Matematik",3, 5, 2);
     }
 }

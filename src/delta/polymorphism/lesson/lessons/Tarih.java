@@ -5,6 +5,6 @@ import delta.polymorphism.lesson.Lesson;
 public class Tarih extends Lesson {
 
     public Tarih() {
-        super(2,2,10);
+        super("Tarih",2,2,10);
     }
 }

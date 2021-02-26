@@ -5,6 +5,6 @@ import delta.polymorphism.lesson.Lesson;
 public class PRT extends Lesson {
 
     public PRT() {
-        super(5,5,11);
+        super("Programlama Temelleri",5,5,11);
     }
 }

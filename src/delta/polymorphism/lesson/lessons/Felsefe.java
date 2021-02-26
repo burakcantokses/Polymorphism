@@ -5,6 +5,6 @@ import delta.polymorphism.lesson.Lesson;
 public class Felsefe extends Lesson {
 
     public Felsefe(){
-        super(2,2,9);
+        super("Felsefe",2,2,9);
     }
 }

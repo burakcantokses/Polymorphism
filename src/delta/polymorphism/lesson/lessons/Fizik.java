@@ -5,6 +5,6 @@ import delta.polymorphism.lesson.Lesson;
 public class Fizik extends Lesson {
 
     public Fizik(){
-        super(2,2,6);
+        super("Fizik",2,2,6);
     }
 }

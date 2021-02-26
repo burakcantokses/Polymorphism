@@ -5,6 +5,6 @@ import delta.polymorphism.lesson.Lesson;
 public class Kimya extends Lesson {
 
     public Kimya() {
-        super(2, 2, 0);
+        super("Kimya",2, 2, 0);
     }
 }
